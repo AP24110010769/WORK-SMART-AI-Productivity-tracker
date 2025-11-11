@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WorkSmart - AI Productivity Tracker</title>
+  <link rel="stylesheet" href="./style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>WorkSmart - AI Productivity Tracker</h1>
+  </header>
+
+  <main>
+    <!-- CSV Upload -->
+    <section class="upload-section">
+      <h2>📂 Upload CSV:</h2>
+      <input type="file" id="csvFile" accept=".csv" />
+      <button id="uploadBtn">Upload & Analyze</button>
+    </section>
+
+    <!-- Real-Time Task Input -->
+    <section class="realtime-section">
+      <h3>🖊️ Log Task in Real-Time</h3>
+      <input type="text" id="task-input" placeholder="Task description..." />
+      <input type="number" id="task-score" placeholder="Productivity score" min="0" max="100" />
+      <select id="task-category">
+        <option value="Coding">Coding</option>
+        <option value="Meetings">Meetings</option>
+        <option value="Learning">Learning</option>
+      </select>
+      <button id="add-task-btn">Add Task</button>
+      <button id="voice-btn">🎤 Talk to Assistant</button>
+    </section>
+
+    <!-- Filters -->
+    <section class="filters-section">
+      <h3>🔍 Filter Data</h3>
+      <div class="filters">
+        <label>From: <input type="date" id="start-date" /></label>
+        <label>To: <input type="date" id="end-date" /></label>
+        <label>
+          Category:
+          <select id="category-filter">
+            <option value="">All</option>
+            <option value="Coding">Coding</option>
+            <option value="Meetings">Meetings</option>
+            <option value="Learning">Learning</option>
+          </select>
+        </label>
+        <button id="apply-filters">Apply Filters</button>
+      </div>
+    </section>
+
+    <!-- Charts -->
+    <section class="charts-container">
+      <canvas id="tasksChart"></canvas>
+      <canvas id="productivityChart"></canvas>
+    </section>
+
+    <!-- Statistics -->
+    <section class="statistics-section">
+      <h3>📊 Detailed Statistics</h3>
+      <div class="stats-cards">
+        <div class="stat-card" id="total-tasks">
+          <h4>Total Tasks Completed</h4>
+          <p>0</p>
+          <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+        </div>
+        <div class="stat-card" id="avg-productivity">
+          <h4>Average Productivity Score</h4>
+          <p>0</p>
+          <div class="progress-bar"><div class="progress-fill" style="width:0%"></div></div>
+        </div>
+        <div class="stat-card" id="weekly-trend">
+          <h4>Weekly Productivity Trend</h4>
+          <p>—</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI Smart Insights -->
+    <section class="ai-cards-section">
+      <h3>💡 Smart Insights</h3>
+      <div class="ai-cards-container" id="ai-cards-container"></div>
+    </section>
+
+    <!-- AI Summary -->
+    <section class="ai-summary">
+      <h3>AI Productivity Insights</h3>
+      <button id="generateBtn">Generate Insights</button>
+      <div id="ai-output"></div>
+    </section>
+
+    <!-- Chatbot -->
+    <section class="chat-section">
+      <h3>💬 WorkSmart AI Assistant</h3>
+      <div id="chat-box" class="chat-box">
+        <div class="bot-msg">Hello 👋 I’m your WorkSmart Assistant!</div>
+      </div>
+      <div class="chat-input-area">
+        <input type="text" id="user-input" placeholder="Ask about productivity, goals, or tasks..." />
+        <button id="send-btn">Send</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 WorkSmart | AI Productivity Tracker</p>
+  </footer>
+
+  <script type="module" src="./ai.js"></script>
+  <script type="module" src="./app.js"></script>
+  <script type="module" src="./chat.js"></script>
+</body>
+</html>
